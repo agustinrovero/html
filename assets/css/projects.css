@@ -1,0 +1,81 @@
+.projects-section {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: start;
+	padding: 0px;
+	text-align: center;
+}
+
+.projects-section-title {
+	font-size: 32px;
+	font-weight: bold;
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Creates exactly 3 columns of equal width */
+  gap: 15px; /* Adds spacing between your columns and rows */
+}
+
+/* Optional styling so your grid items are clearly visible */
+.project-card {
+  display: flex;
+  flex-direction: column;
+  background-color: #f4f4f400;
+  padding: 0px;
+  border: 1px solid #ddd;
+  border-radius: 16px;
+  overflow: hidden;
+  gap: 4px;
+	text-align: justify;
+	text-justify: inter-word;
+
+  img {
+	width: 100%;
+	object-fit: cover;  /* Crops the image perfectly without squishing it */
+  }
+}
+
+.project-card-tags {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	gap: 4px;
+	font-size: 10px;
+	font-weight: normal;
+}
+
+.project-card-title {
+	font-size: 24px;
+	font-weight: bold;
+}
+
+.project-card-description {
+	font-size: 12px;
+	font-weight: normal;
+}
+
+.chip-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 8px 0px 0px 0px;
+}
+
+.chip {
+  align-self: center;
+  display: flex;
+  color: #fff;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0px;
+  text-align: left;
+  background-color: #000;
+  padding: 4px 8px;
+  border-radius: 32px;
+}
