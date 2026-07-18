@@ -19,25 +19,7 @@
   gap: 15px; /* Adds spacing between your columns and rows */
 }
 
-/* Optional styling so your grid items are clearly visible */
-.project-card {
-	display: flex;
-	flex-direction: column;
-	background-color: #000000;
-	padding: 0px;
-	border: 1px solid #ddd;
-	border-radius: 16px;
-	overflow: hidden;
-	gap: 4px;
-	text-align: justify;
-	text-justify: inter-word;
-	transform-style: preserve-3d;
 
-  img {
-	width: 100%;
-	object-fit: cover;  /* Crops the image perfectly without squishing it */
-  }
-}
 
 .project-card-tags {
 	display: flex;
@@ -83,38 +65,81 @@
 
 /**************************************************************/
 
+/**************************************************************/
+
+
+
+
+
+
+
+
+
+
+
+
 /* 1. The perspective wrapper */
 .flip-card-wrapper {
-  perspective: 1000px; /* Crucial: Gives the 3D depth effect */
+  perspective: 1000px;
+  width: 100%;
+  /* REMOVED: No fixed height here anymore! */
 }
 
-/* 2. The spinning element */
-.flip-card-inner {
+/* 2. The physical card container */
+.project-card {
   position: relative;
   width: 100%;
-  height: 100%;
-  transition: transform 0.6s ease-in-out; /* Controls speed and rhythm of the flip */
-  transform-style: preserve-3d; /* Tells children to live in 3D space, not flat layers */
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+  cursor: pointer;
 }
 
-/* The Magic Trigger: When you hover over the wrapper, rotate the inner card */
-.flip-card-wrapper:hover .flip-card-inner {
+/* The Trigger */
+.flip-card-wrapper:hover .project-card {
   transform: rotateY(180deg);
 }
 
-/* 3. Common rules for both faces */
-.flip-card-front,
-.flip-card-back {
-  position: absolute; /* Glues them directly on top of each other */
+/* 3. Front Face (The Content Anchor) */
+.flip-card-front {
+  position: relative; /* CHANGED: It now takes up physical space and dictates the height */
   width: 100%;
-  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+
+  display: flex;
+  flex-direction: column;
+  background-color: #111111;
+  border: 1px solid #ddd;
+  border-radius: 16px;
+  overflow: hidden;
+  gap: 4px;
 }
 
-/* 4. Rear Face Starting State */
+/* 4. Rear Face (The Shadow Layer) */
 .flip-card-back {
-	background: #FFFFFF;
-	backface-visibility: hidden; /* Hides a side completely when it is facing away */
-	transform: rotateY(180deg); /* Pre-flips the back side so it faces away by default */
+  position: absolute; /* Keeps this layer glued to the front's dimensions */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* Stretches to exactly match the height of the front face */
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  z-index: 1;
+  transform: rotateY(180deg) ;
+
+  display: flex;
+  flex-direction: column;
+  background: #f43232;
+  color: #000000;
+  border: 1px solid #ddd;
+  border-radius: 16px;
+  overflow: hidden;
+  gap: 4px;
 }
 
-/**************************************************************/
+/* Image behavior adjustment */
+.flip-card-front img {
+  width: 100%;
+  height: auto; /* Lets the image size naturally scale */
+  object-fit: cover;
+}
