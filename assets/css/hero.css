@@ -1,0 +1,19 @@
+.hero-section {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: start;
+	padding: var(--section-sep) 0px 0px;
+	text-align: center;
+	padding: var(--section-sep) 0px 0px;
+}
+
+.hero-section-title {
+	font-size: 32px;
+	font-weight: bold;
+}
+
+.hero-section-description {
+	font-size: 14px;
+	font-weight: medium;
+}

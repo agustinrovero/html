@@ -1,8 +1,10 @@
 :root {
-	--background-color: #b1b1b1;
+	--background-color: #252424;
 
 	--main-font: "Science Gothic", sans-serif;
-	--text: #e2e8f0;
+	--text-color: #e2e8f0;
+
+	--section-sep: 200px;
 }
 
 *{
@@ -10,6 +12,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: var(--main-font);
+	color: var(--text-color);
 }
 
 body{
@@ -28,6 +31,7 @@ body{
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
+	/* align-self: flex-start; */
 	color: #00a6ff;
 	border-color: aqua;
 	font-size: 10px;

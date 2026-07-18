@@ -1,16 +1,21 @@
 .projects-section {
-	color: #FFFFFF;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: start;
-	padding: 0px;
+	padding: var(--section-sep) 0px 0px;
 	text-align: center;
+	gap: 8px;
 }
 
 .projects-section-title {
 	font-size: 32px;
 	font-weight: bold;
+}
+
+.projects-section-description {
+	font-size: 14px;
+	font-weight: medium;
 }
 
 .projects {
