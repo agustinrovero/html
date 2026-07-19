@@ -18,9 +18,10 @@
 	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 	<link rel="manifest" href="/site.webmanifest" />
 
-    <link rel="stylesheet" href="assets/css/styles.css" />
-	<link rel="stylesheet" href="assets/css/header.css" />
-	<link rel="stylesheet" href="assets/css/projects.css" />
+    <link rel="stylesheet" href="assets/css/styles.css"/>
+	<link rel="stylesheet" href="assets/css/header.css"/>
+	<link rel="stylesheet" href="assets/css/projects.css"/>
+	<link rel="stylesheet" href="assets/css/hero.css"/>
   </head>
 
   <body>
@@ -50,16 +51,70 @@
 
 
 	<div class="hero-section">
-		<div class="eyebrow">
-			<div class="dot"></div>
-			Featured Work
+		<div style="
+			display: flex;
+			flex-direction: column;
+			justify-content: start;
+			width: 60%;
+			align-items: start;
+			text-align: left;
+			">
+			<div class="eyebrow">
+				<div class="dot"></div>
+				Building hardware
+			</div>
+			<div class="hero-section-title">
+				Personal portfolio for electronic projects, prototypes, and embedded systems.
+			</div>
+			<div class="hero-section-description">
+				I design and build practical electronic projects ranging from sensor systems and automation tools to PCB-based prototypes and microcontroller-driven devices. This page is a home for my experiments, finished builds, and the engineering process behind them.
+			</div>
+
 		</div>
-		<div class="hero-section-title">
-			Personal portfolio for electronic projects, prototypes, and embedded systems.
+		<div style="
+			display: grid;
+			width: 40%;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 16px;
+			">
+
+			<div class="hero-card">
+				<div style="
+					display: flex;
+					flex-direction: row;
+					justify-content: flex-start;
+					align-items: center;
+					gap: 8px;
+					">
+					<img
+						src="assets/images/circuit-board.svg"
+						width="24"
+						height="24"
+					/>
+					<div class="hero-card-title">PCB & Prototyping</div>
+				</div>
+
+				<div class="hero-card-description">Design and build circuit boards, prototypes, and microcontroller-based devices.</div>
+			</div>
+			<div class="hero-card">
+				<div style="
+					display: flex;
+					flex-direction: row;
+					justify-content: flex-start;
+					align-items: center;
+					gap: 8px;
+					">
+					<img
+						src="assets/images/circuit-board.svg"
+						width="24"
+						height="24"
+					/>
+					<div class="hero-card-title">Prototyping</div>
+				</div>
+				<div class="hero-card-description">Design and build circuit boards, prototypes, and microcontroller-based devices.</div>
+			</div>
 		</div>
-		<div class="hero-section-description">
-			Replace these examples with your real builds. Each card can highlight the challenge, hardware used, firmware details, test results, and what you learned during development.
-		</div>
+
 	</div>
 
 
