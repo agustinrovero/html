@@ -5,6 +5,7 @@
 	--text-color: #e2e8f0;
 
 	--section-sep: 50px;
+	--side-margin: 64px;
 }
 
 *{
@@ -19,10 +20,11 @@ body{
 	background-color: var(--background-color);
 
 	font-family: var(--main-font);
-
-	padding: 0 64px;
 }
 
+.content {
+	padding: 0 var(--side-margin);
+}
 
 
 .eyebrow{

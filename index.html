@@ -1,283 +1,412 @@
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <title>Agustin Rovero</title>
-	<link rel="icon" type="image/x-icon" href="/images/favicon/favicon.ico">
+	<head>
+		<meta charset="utf-8" />
+		<title>Agustin Rovero</title>
+		<link rel="icon" type="image/x-icon" href="/images/favicon/favicon.ico">
 
-	<link rel="preconnect" href="https://googleapis.com">
-	<link rel="preconnect" href="https://gstatic.com" crossorigin>
-	<!-- Loads full ranges: Weight (100-900), Width (50-200), Slant (-10-0), YOPQ (18-122) -->
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Inconsolata:wght@200..900&family=Science+Gothic:wght@100..900&display=swap" rel="stylesheet">
+		<link rel="preconnect" href="https://googleapis.com">
+		<link rel="preconnect" href="https://gstatic.com" crossorigin>
+		<!-- Loads full ranges: Weight (100-900), Width (50-200), Slant (-10-0), YOPQ (18-122) -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Inconsolata:wght@200..900&family=Science+Gothic:wght@100..900&display=swap" rel="stylesheet">
 
-	<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-	<link rel="shortcut icon" href="/favicon.ico" />
-	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-	<link rel="manifest" href="/site.webmanifest" />
+		<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+		<link rel="manifest" href="/site.webmanifest" />
 
-    <link rel="stylesheet" href="assets/css/styles.css"/>
-	<link rel="stylesheet" href="assets/css/header.css"/>
-	<link rel="stylesheet" href="assets/css/projects.css"/>
-	<link rel="stylesheet" href="assets/css/hero.css"/>
-  </head>
-
-  <body>
-    <header class="header">
-      <div>
-		<img src="assets/images/logo.svg" width="80" height="80">
-	  </div>
-
-      <div>
-        <button class="pcb-button">
-		<span class="btn-text">Projects</span>
-		<!-- The circuit traces that adapt to button size -->
-		<span class="trace-border"></span>
-		</button>
-        <button class="pcb-button">
-		<span class="btn-text">Skills</span>
-		<!-- The circuit traces that adapt to button size -->
-		<span class="trace-border"></span>
-		</button>
-		<button class="pcb-button">
-		<span class="btn-text">Contact Me</span>
-		<!-- The circuit traces that adapt to button size -->
-		<span class="trace-border"></span>
-		</button>
-      </div>
-    </header>
+		<link rel="stylesheet" href="assets/css/styles.css"/>
+		<link rel="stylesheet" href="assets/css/header.css"/>
+		<link rel="stylesheet" href="assets/css/projects.css"/>
+		<link rel="stylesheet" href="assets/css/hero.css"/>
+		<link rel="stylesheet" href="assets/css/contact.css"/>
+	</head>
 
 
-	<div class="hero-section">
-		<div style="
-			display: flex;
-			flex-direction: column;
-			justify-content: start;
-			width: 60%;
-			align-items: start;
-			text-align: left;
-			">
-			<div class="eyebrow">
-				<div class="dot"></div>
-				Building hardware
-			</div>
-			<div class="hero-section-title">
-				Personal portfolio for electronic projects, prototypes, and embedded systems.
-			</div>
-			<div class="hero-section-description">
-				I design and build practical electronic projects ranging from sensor systems and automation tools to PCB-based prototypes and microcontroller-driven devices. This page is a home for my experiments, finished builds, and the engineering process behind them.
-			</div>
+	<!------------------------------------------------------------->
 
-		</div>
-		<div style="
-			display: grid;
-			width: 40%;
-			grid-template-columns: repeat(2, 1fr);
-			gap: 16px;
-			">
-
-			<div class="hero-card">
-				<div style="
-					display: flex;
-					flex-direction: row;
-					justify-content: flex-start;
-					align-items: center;
-					gap: 8px;
-					">
-					<img
-						src="assets/images/circuit-board.svg"
-						width="24"
-						height="24"
-					/>
-					<div class="hero-card-title">PCB & Prototyping</div>
-				</div>
-
-				<div class="hero-card-description">Design and build circuit boards, prototypes, and microcontroller-based devices.</div>
-			</div>
-			<div class="hero-card">
-				<div style="
-					display: flex;
-					flex-direction: row;
-					justify-content: flex-start;
-					align-items: center;
-					gap: 8px;
-					">
-					<img
-						src="assets/images/circuit-board.svg"
-						width="24"
-						height="24"
-					/>
-					<div class="hero-card-title">Prototyping</div>
-				</div>
-				<div class="hero-card-description">Design and build circuit boards, prototypes, and microcontroller-based devices.</div>
-			</div>
+	<body>
+	<header class="header">
+		<div>
+			<img src="assets/images/logo.svg" width="80" height="80">
 		</div>
 
-	</div>
+		<div>
+			<a href="projects">
+			<button class="pcb-button">
+			<span class="btn-text">Projects</span>
+			<span class="trace-border"></span>
+			</button>
+			</a>
 
+			<button class="pcb-button">
+			<span class="btn-text">Skills</span>
+			<span class="trace-border"></span>
+			</button>
 
+			<a href="contact">
+			<button class="pcb-button">
+			<span class="btn-text">Contact Me</span>
+			<span class="trace-border"></span>
+			</button>
+			</a>
+		</div>
+	</header>
 
+	<!------------------------------------------------------------->
 
-
-	<div class="projects-section">
-		<div style="
-			display: flex;
-			flex-direction: row;
-			justify-content: space-between;
-			align-items: end;
-			">
+	<div class="content">
+		<div class="hero-section">
 			<div style="
 				display: flex;
 				flex-direction: column;
 				justify-content: start;
-				width: 75%;
+				flex-grow: 1;
 				align-items: start;
-				text-align: left; /* Fixes text justification */
+				text-align: left;
 				">
 				<div class="eyebrow">
 					<div class="dot"></div>
-					Featured Work
+					Building hardware
 				</div>
-				<div class="projects-section-title">Projects that combine electronics, code, and practical design.</div>
-				<div class="projects-section-description">Replace these examples with your real builds. Each card can highlight the challenge, hardware used, firmware details, test results, and what you learned during development.</div>
-			</div>
-			<div>
+				<div class="hero-section-title">
+					Personal portfolio for electronic projects, prototypes, and embedded systems.
+				</div>
+				<div class="hero-section-description">
+					I design and build practical electronic projects ranging from sensor systems and automation tools to PCB-based prototypes and microcontroller-driven devices. This page is a home for my experiments, finished builds, and the engineering process behind them.
+				</div>
+
+				<div style="margin-top: auto;">
 				<button class="pcb-button">
-					<span class="btn-text" style="font-size: 12px;">Ask About a Project</span>
-					<!-- The circuit traces that adapt to button size -->
+					<span class="btn-text">Contact Me</span>
 					<span class="trace-border"></span>
 				</button>
+				</div>
+
+				<div class="stat-section">
+					<div class="stat-card">
+						<div class="stat-card-title">20+</div>
+						<div class="stat-card-description">Electronic builds and prototypes.</div>
+					</div>
+
+					<div class="stat-card">
+						<div class="stat-card-title">20+</div>
+						<div class="stat-card-description">Core tools and platforms used regularly.</div>
+					</div>
+
+					<div class="stat-card">
+						<div class="stat-card-title">100 %</div>
+						<div class="stat-card-description">Hands-on design, testing, and iteration.</div>
+					</div>
+
+				</div>
+
+
 			</div>
-		</div>
 
-		<div class="projects">
 
-			<div class="flip-card-wrapper">
-				<div class="project-card">
-					<div class="flip-card-back">
-						<!-- PLACE YOUR REAR CONTENT HERE -->
-						<h2>Rear Content</h2>
+			<div style="
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				gap: 16px;
+				padding: 16px;
+				border-radius: 24px;
+				border: 1px solid #18e147;
+				">
+
+				<div class="hero-card">
+					<div style="
+						display: flex;
+						flex-direction: row;
+						justify-content: flex-start;
+						align-items: center;
+						gap: 8px;
+						">
+						<img
+							src="assets/images/icons/iot.svg"
+							width="24"
+							height="24"
+						/>
+						<div class="hero-card-title">PCB & Prototyping</div>
 					</div>
-					<div class="flip-card-front">
-						<img src="assets/images/Crucero/PCB_Top_View_Cut.png">
-						<div style="padding: 0 16px 16px">
-							<div class="project-card-tags">
-								<div>System Design</div>
-								<div>2024</div>
-							</div>
-							<div class="project-card-title">Crucero System</div>
-							<div class="project-card-description">
-								An advanced, high-performance hardware and software validation platform designed to streamline automotive electronics testing.
-							</div>
-							<div class="chip-group">
-								<div class="chip">Python</div>
-								<div class="chip">C/C++</div>
-								<div class="chip">CircuitMaker</div>
-								<div class="chip">FreeCAD</div>
-							</div>
-						</div>
+
+					<div class="hero-card-description">Design and build circuit boards, prototypes, and microcontroller-based devices.</div>
+				</div>
+
+				<div class="hero-card">
+					<div style="
+						display: flex;
+						flex-direction: row;
+						justify-content: flex-start;
+						align-items: center;
+						gap: 8px;
+						">
+						<img
+							src="assets/images/icons/pcb.svg"
+							width="24" height="24"
+						/>
+						<div class="hero-card-title">Prototyping</div>
 					</div>
+					<div class="hero-card-description">Design and build circuit boards, prototypes, and microcontroller-based devices.</div>
+				</div>
+
+				<div class="hero-card">
+					<div style="
+						display: flex;
+						flex-direction: row;
+						justify-content: flex-start;
+						align-items: center;
+						gap: 8px;
+						">
+						<img
+							src="assets/images/pcb.svg"
+							width="24"
+							height="24"
+						/>
+						<div class="hero-card-title">PCB & Prototyping</div>
+					</div>
+
+					<div class="hero-card-description">Design and build circuit boards, prototypes, and microcontroller-based devices.</div>
+				</div>
+
+				<div class="hero-card">
+					<div style="
+						display: flex;
+						flex-direction: row;
+						justify-content: flex-start;
+						align-items: center;
+						gap: 8px;
+						">
+						<img
+							src="assets/images/pcb.svg"
+							width="24"
+							height="24"
+						/>
+						<div class="hero-card-title">PCB & Prototyping</div>
+					</div>
+
+					<div class="hero-card-description">Design and build circuit boards, prototypes, and microcontroller-based devices.</div>
 				</div>
 			</div>
 
-			<div class="flip-card-wrapper">
-				<div class="project-card">
-					<div class="flip-card-back">
-						<!-- PLACE YOUR REAR CONTENT HERE -->
-						<h2>Rear Content</h2>
-					</div>
-					<div class="flip-card-front">
-						<img src="assets/images/Crucero/PCB_Top_View_Cut.png">
-						<div style="padding: 0 16px 16px">
-							<div class="project-card-tags">
-								<div>System Design</div>
-								<div>2024</div>
-							</div>
-							<div class="project-card-title">Crucero System</div>
-							<div class="project-card-description">
-								An advanced, high-performance hardware and software validation platform designed to streamline automotive electronics testing.
-							</div>
-							<div class="chip-group">
-								<div class="chip">Python</div>
-								<div class="chip">C/C++</div>
-								<div class="chip">CircuitMaker</div>
-								<div class="chip">FreeCAD</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
 
-			<div class="flip-card-wrapper">
-				<div class="project-card">
-					<div class="flip-card-back">
-						<!-- PLACE YOUR REAR CONTENT HERE -->
-						<h2>Rear Content</h2>
-					</div>
-					<div class="flip-card-front">
-						<img src="assets/images/Crucero/PCB_Top_View_Cut.png">
-						<div style="padding: 0 16px 16px">
-							<div class="project-card-tags">
-								<div>System Design</div>
-								<div>2024</div>
-							</div>
-							<div class="project-card-title">Crucero System</div>
-							<div class="project-card-description">
-								An advanced, high-performance hardware and software validation platform designed to streamline automotive electronics testing.
-							</div>
-							<div class="chip-group">
-								<div class="chip">Python</div>
-								<div class="chip">C/C++</div>
-								<div class="chip">CircuitMaker</div>
-								<div class="chip">FreeCAD</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="flip-card-wrapper">
-				<div class="project-card">
-					<div class="flip-card-back">
-						<!-- PLACE YOUR REAR CONTENT HERE -->
-						<h2>Rear Content</h2>
-					</div>
-					<div class="flip-card-front">
-						<img src="assets/images/Crucero/PCB_Top_View_Cut.png">
-						<div style="padding: 0 16px 16px">
-							<div class="project-card-tags">
-								<div>System Design</div>
-								<div>2024</div>
-							</div>
-							<div class="project-card-title">Crucero System</div>
-							<div class="project-card-description">
-								An advanced, high-performance hardware and software validation platform designed to streamline automotive electronics testing.
-							</div>
-							<div class="chip-group">
-								<div class="chip">Python</div>
-								<div class="chip">C/C++</div>
-								<div class="chip">CircuitMaker</div>
-								<div class="chip">FreeCAD</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
 
 
 
 		</div>
+
+		<!----------------------------->
+
+		<div id="projects" class="projects-section">
+			<div style="
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+				align-items: end;
+				">
+				<div style="
+					display: flex;
+					flex-direction: column;
+					justify-content: start;
+					width: 75%;
+					align-items: start;
+					text-align: left; /* Fixes text justification */
+					">
+					<div class="eyebrow">
+						<div class="dot"></div>
+						Featured Work
+					</div>
+					<div class="projects-section-title">Projects that combine electronics, code, and practical design.</div>
+					<div class="projects-section-description">Replace these examples with your real builds. Each card can highlight the challenge, hardware used, firmware details, test results, and what you learned during development.</div>
+				</div>
+				<div>
+					<button class="pcb-button">
+						<span class="btn-text" style="font-size: 12px;">Ask About a Project</span>
+						<span class="trace-border"></span>
+					</button>
+				</div>
+			</div>
+
+			<div class="projects">
+
+				<div class="flip-card-wrapper">
+					<div class="project-card">
+						<div class="flip-card-back">
+							<h2>Rear Content</h2>
+						</div>
+						<div class="flip-card-front">
+							<img src="assets/images/Crucero/PCB_Top_View_Cut.png">
+							<div style="padding: 0 16px 16px">
+								<div class="project-card-tags">
+									<div>System Design</div>
+									<div>2024</div>
+								</div>
+								<div class="project-card-title">Crucero System</div>
+								<div class="project-card-description">
+									An advanced, high-performance hardware and software validation platform designed to streamline automotive electronics testing.
+								</div>
+								<div class="chip-group">
+									<div class="chip">Python</div>
+									<div class="chip">C/C++</div>
+									<div class="chip">CircuitMaker</div>
+									<div class="chip">FreeCAD</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="flip-card-wrapper">
+					<div class="project-card">
+						<div class="flip-card-back">
+							<!-- PLACE YOUR REAR CONTENT HERE -->
+							<h2>Rear Content</h2>
+						</div>
+						<div class="flip-card-front">
+							<img src="assets/images/Crucero/PCB_Top_View_Cut.png">
+							<div style="padding: 0 16px 16px">
+								<div class="project-card-tags">
+									<div>System Design</div>
+									<div>2024</div>
+								</div>
+								<div class="project-card-title">Crucero System</div>
+								<div class="project-card-description">
+									An advanced, high-performance hardware and software validation platform designed to streamline automotive electronics testing.
+								</div>
+								<div class="chip-group">
+									<div class="chip">Python</div>
+									<div class="chip">C/C++</div>
+									<div class="chip">CircuitMaker</div>
+									<div class="chip">FreeCAD</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="flip-card-wrapper">
+					<div class="project-card">
+						<div class="flip-card-back">
+							<!-- PLACE YOUR REAR CONTENT HERE -->
+							<h2>Rear Content</h2>
+						</div>
+						<div class="flip-card-front">
+							<img src="assets/images/Crucero/PCB_Top_View_Cut.png">
+							<div style="padding: 0 16px 16px">
+								<div class="project-card-tags">
+									<div>System Design</div>
+									<div>2024</div>
+								</div>
+								<div class="project-card-title">Crucero System</div>
+								<div class="project-card-description">
+									An advanced, high-performance hardware and software validation platform designed to streamline automotive electronics testing.
+								</div>
+								<div class="chip-group">
+									<div class="chip">Python</div>
+									<div class="chip">C/C++</div>
+									<div class="chip">CircuitMaker</div>
+									<div class="chip">FreeCAD</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="flip-card-wrapper">
+					<div class="project-card">
+						<div class="flip-card-back">
+							<!-- PLACE YOUR REAR CONTENT HERE -->
+							<h2>Rear Content</h2>
+						</div>
+						<div class="flip-card-front">
+							<img src="assets/images/Crucero/PCB_Top_View_Cut.png">
+							<div style="padding: 0 16px 16px">
+								<div class="project-card-tags">
+									<div>System Design</div>
+									<div>2024</div>
+								</div>
+								<div class="project-card-title">Crucero System</div>
+								<div class="project-card-description">
+									An advanced, high-performance hardware and software validation platform designed to streamline automotive electronics testing.
+								</div>
+								<div class="chip-group">
+									<div class="chip">Python</div>
+									<div class="chip">C/C++</div>
+									<div class="chip">CircuitMaker</div>
+									<div class="chip">FreeCAD</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+
+			</div>
+		</div>
+
+		<!----------------------------->
+
+		<div id="contact" class="contact-section">
+			<div style="
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: flex-start;
+				text-align: center;
+				gap: 16px;
+				width: 50%;
+				">
+
+				<div class="eyebrow">
+					<div class="dot"></div>
+					Contact
+				</div>
+
+				<div class="contact-section-title">
+					Let’s connect about electronics, builds, and future ideas.
+				</div>
+
+				<div class="contact-section-description">
+					Use this section to invite conversation, share your preferred contact details, or make it easy for people to follow your project updates.
+				</div>
+			</div>
+			<div style="
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-start;
+				align-items: flex-start;
+				text-align: left;
+				gap: 16px;
+				border: 1px solid #18e147;
+				border-radius: 24px;
+				padding: 16px;
+				">
+
+				<h2>Quick Links</h2>
+				<h4>Get in touch with me on any of the following platforms:</h4>
+
+				<a href="https://github.com/agustinrovero">
+				<div class="contact-button">
+					<img src="assets/images/icons/github.svg" height="24">
+					<img src="assets/images/icons/external-link.svg" height="24">
+				</div>
+				</a>
+				<a href="https://www.linkedin.com/in/agustinrovero/">
+				<div class="contact-button">
+					<img src="assets/images/icons/linkedin.png" height="24">
+					<img src="assets/images/icons/external-link.svg" height="24">
+				</div>
+				</a>
+			</div>
+		</div>
+
 	</div>
 
+	<!------------------------------------------------------------->
 
-
-
-
-
-
-
-
-  </body>
+	</body>
 </html>
