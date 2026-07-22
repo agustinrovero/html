@@ -2,12 +2,11 @@
 	display: flex;
 	flex-direction: row;
 	justify-content: flex-start;
-	align-items: stretch;
-	margin: var(--section-sep) 0px 0px;
+	align-items: flex-start;
+	margin: var(--section-sep) 0px var(--section-sep);
 	text-align: center;
 	flex-wrap: nowrap;
 	gap: 32px;
-	width: 100%;
 }
 
 .contact-section-title {
@@ -33,7 +32,6 @@
 	border-radius: 24px;
 	padding: 16px;
 	font-size: 16px;
-	width: 200px;
 
 	& > *:last-child {
 		margin-left: auto; /* Pushes the last item to the far right */

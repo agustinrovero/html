@@ -23,6 +23,7 @@
 		<link rel="stylesheet" href="assets/css/projects.css"/>
 		<link rel="stylesheet" href="assets/css/hero.css"/>
 		<link rel="stylesheet" href="assets/css/contact.css"/>
+		<link rel="stylesheet" href="assets/css/about.css"/>
 	</head>
 
 
@@ -63,20 +64,20 @@
 			<div style="
 				display: flex;
 				flex-direction: column;
-				justify-content: start;
-				flex-grow: 1;
-				align-items: start;
+				justify-content: flex-start;
+				flex: 0 0 58%;
+				align-items: flex-start;
 				text-align: left;
 				">
 				<div class="eyebrow">
 					<div class="dot"></div>
-					Building hardware
+					Engineering smart systems that connect hardware, software, and innovation.
 				</div>
 				<div class="hero-section-title">
-					Personal portfolio for electronic projects, prototypes, and embedded systems.
+					Designing Robust Hardware, Embedded Systems & Custom PCBs
 				</div>
 				<div class="hero-section-description">
-					I design and build practical electronic projects ranging from sensor systems and automation tools to PCB-based prototypes and microcontroller-driven devices. This page is a home for my experiments, finished builds, and the engineering process behind them.
+					I bridge the gap between hardware architecture and low-level software. From schematic layout and PCB prototyping to bare-metal firmware and validation testbenches, I turn technical concepts into functional, real-world electronics.
 				</div>
 
 				<div style="margin-top: auto;">
@@ -93,7 +94,7 @@
 					</div>
 
 					<div class="stat-card">
-						<div class="stat-card-title">20+</div>
+						<div class="stat-card-title">8</div>
 						<div class="stat-card-description">Core tools and platforms used regularly.</div>
 					</div>
 
@@ -101,10 +102,7 @@
 						<div class="stat-card-title">100 %</div>
 						<div class="stat-card-description">Hands-on design, testing, and iteration.</div>
 					</div>
-
 				</div>
-
-
 			</div>
 
 
@@ -130,10 +128,33 @@
 							width="24"
 							height="24"
 						/>
-						<div class="hero-card-title">PCB & Prototyping</div>
+						<div class="hero-card-title">Sensors & IoT</div>
 					</div>
 
-					<div class="hero-card-description">Design and build circuit boards, prototypes, and microcontroller-based devices.</div>
+					<div class="hero-card-description">
+						Wireless monitoring, data collection, and real-time feedback with displays, alerts, and connected dashboards.
+					</div>
+				</div>
+
+				<div class="hero-card">
+					<div style="
+						display: flex;
+						flex-direction: row;
+						justify-content: flex-start;
+						align-items: center;
+						gap: 8px;
+						">
+						<img
+							src="assets/images/icons/chip.svg"
+							width="24"
+							height="24"
+						/>
+						<div class="hero-card-title">Embedded</div>
+					</div>
+
+					<div class="hero-card-description">
+						Firmware for STM32, ESP32, and MCU-based systems with sensor input, control logic, and communication interfaces.
+					</div>
 				</div>
 
 				<div class="hero-card">
@@ -148,9 +169,11 @@
 							src="assets/images/icons/pcb.svg"
 							width="24" height="24"
 						/>
-						<div class="hero-card-title">Prototyping</div>
+						<div class="hero-card-title">PCB</div>
 					</div>
-					<div class="hero-card-description">Design and build circuit boards, prototypes, and microcontroller-based devices.</div>
+					<div class="hero-card-description">
+						Design and build circuit boards, prototypes, and microcontroller-based devices.
+					</div>
 				</div>
 
 				<div class="hero-card">
@@ -162,14 +185,16 @@
 						gap: 8px;
 						">
 						<img
-							src="assets/images/pcb.svg"
+							src="assets/images/icons/robot.svg"
 							width="24"
 							height="24"
 						/>
-						<div class="hero-card-title">PCB & Prototyping</div>
+						<div class="hero-card-title">Power Systems</div>
 					</div>
 
-					<div class="hero-card-description">Design and build circuit boards, prototypes, and microcontroller-based devices.</div>
+					<div class="hero-card-description">
+						DC-DC converters, SMPS, BMS, and power distribution engineered for efficiency and stability.
+					</div>
 				</div>
 
 				<div class="hero-card">
@@ -181,14 +206,37 @@
 						gap: 8px;
 						">
 						<img
-							src="assets/images/pcb.svg"
+							src="assets/images/icons/robot.svg"
 							width="24"
 							height="24"
 						/>
-						<div class="hero-card-title">PCB & Prototyping</div>
+						<div class="hero-card-title">Control</div>
 					</div>
 
-					<div class="hero-card-description">Design and build circuit boards, prototypes, and microcontroller-based devices.</div>
+					<div class="hero-card-description">
+						Closed-loop feedback loops, PID algorithms, sensor fusion, and precision motor drivers for accurate real-time system response.
+					</div>
+				</div>
+
+				<div class="hero-card">
+					<div style="
+						display: flex;
+						flex-direction: row;
+						justify-content: flex-start;
+						align-items: center;
+						gap: 8px;
+						">
+						<img
+							src="assets/images/icons/robot.svg"
+							width="24"
+							height="24"
+						/>
+						<div class="hero-card-title">Automation</div>
+					</div>
+
+					<div class="hero-card-description">
+						Hardware-in-the-loop (HIL) testing, automated validation testbenches, and custom measurement rigs using Python and SCPI control.
+					</div>
 				</div>
 			</div>
 
@@ -350,6 +398,67 @@
 
 		<!----------------------------->
 
+		<div id="about" class="about-section">
+			<div style="
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: flex-start;
+				text-align: center;
+				gap: 16px;
+				">
+				<div style="
+					display: flex;
+					flex-direction: column;
+					justify-content: center;
+					align-items: flex-start;
+					text-align: center;
+					gap: 16px;
+					">
+					<div class="eyebrow">
+						<div class="dot"></div>
+						About
+					</div>
+					<div>
+						I am a passionate Systems Engineer with a deep interest in technology, process optimization, and complex problem-solving. My core expertise lies at the intersection of hardware, firmware, and software, specifically in the development and validation of embedded systems.
+					</div>
+				</div>
+			</div>
+
+			<div style="
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: flex-start;
+				text-align: left;
+				gap: 16px;
+				flex: 0 0 50%;
+				font-size: 16px;
+				border: 1px solid #cccccc;
+				border-radius: 8px;
+				padding: 16px;
+				">
+				<div class="eyebrow">
+					<div class="dot"></div>
+					About Me
+				</div>
+				<p>I am a passionate Systems Engineer with a deep interest in technology, process optimization, and complex problem-solving. My core expertise lies at the intersection of hardware, firmware, and software, specifically in the development and validation of embedded systems.</p>
+				<p>Throughout my career, I have cultivated a strong professional philosophy: I don't just build systems; I create the tools that empower teams to test, refine, and deploy them with confidence. Driven by an insatiable curiosity, I thrive in environments that challenge me to connect low-level electronics with high-level automation platforms.</p>
+				<h3>Technical Journey & Expertise</h3>
+				<p>With over 10 years of hands-on experience in product development and technical leadership, I have successfully driven projects from initial architectural design to mass deployment. Some of my most impactful contributions include:
+				<ul>
+					<li>IoT & Smart Metering: I spearheaded the development of advanced firmware for smart meters utilizing ESP32 platforms. I engineered custom solutions for reliable data acquisition, low-power optimization, and secure cloud connectivity.</li>
+					<li>Automotive QA Automation: To bridge the gap in complex test environments, I designed and built custom CAN bus automotive simulators. These tools effectively automated quality assurance pipelines, drastically reducing testing bottlenecks and human error.</li>
+					<li>Industrial Control Systems: I have designed deterministic, low-level process controllers utilizing FPGAs, ensuring high-speed execution and precision control for critical industrial operations.</li>
+				</ul>
+				</p>
+
+			</div>
+
+		</div>
+
+		<!----------------------------->
+
 		<div id="contact" class="contact-section">
 			<div style="
 				display: flex;
@@ -358,7 +467,6 @@
 				align-items: flex-start;
 				text-align: center;
 				gap: 16px;
-				width: 50%;
 				">
 
 				<div class="eyebrow">
@@ -367,27 +475,41 @@
 				</div>
 
 				<div class="contact-section-title">
-					Let’s connect about electronics, builds, and future ideas.
+					Let's Bring Hardware to Life
 				</div>
 
 				<div class="contact-section-description">
-					Use this section to invite conversation, share your preferred contact details, or make it easy for people to follow your project updates.
+					Have a complex hardware challenge, an embedded systems puzzle, or an innovative prototype idea? Let's talk system design, hardware validation, or full-stack electronic engineering. Drop me a line, and let’s turn a block diagram into working hardware.
+				</div>
+
+				<div class="contact-section-description">
+					Explore my open-source hardware repositories on GitHub or connect with me on LinkedIn for professional inquiries, project collaborations, and design consultations.
 				</div>
 			</div>
 			<div style="
 				display: flex;
 				flex-direction: column;
 				justify-content: flex-start;
-				align-items: flex-start;
+				align-items: stretch;
 				text-align: left;
 				gap: 16px;
 				border: 1px solid #18e147;
 				border-radius: 24px;
 				padding: 16px;
+				flex: 0 0 40%;
 				">
 
-				<h2>Quick Links</h2>
-				<h4>Get in touch with me on any of the following platforms:</h4>
+				<div style="
+					display: flex;
+					flex-direction: column;
+					justify-content: flex-start;
+					align-items: flex-start;
+					gap: 0px;
+					">
+
+					<div style="font-size: 24px;">Quick Links</div>
+
+				</div>
 
 				<a href="https://github.com/agustinrovero">
 				<div class="contact-button">

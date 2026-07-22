@@ -2,7 +2,7 @@
 	display: flex;
 	flex-direction: row;
 	justify-content: flex-start;
-	align-items: stretch;
+	align-items: flex-start;
 	margin: var(--section-sep) 0px 0px;
 	text-align: center;
 	flex-wrap: nowrap;
@@ -24,12 +24,13 @@
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: flex-start;
-	text-align: left;
+	text-align: start;
 	border-radius: 24px;
 	border: 1px solid #18e147;
 	background: #3e3e3e;
 	/* width: 100%; */
 	padding: 16px;
+	gap: 8px;
 }
 
 .hero-card-title {
