@@ -1,8 +1,9 @@
 :root {
 	--background-color: #252424;
+	--primary-color: #00f0ff;
 
 	--main-font: "Science Gothic", sans-serif;
-	--text-color: #e2e8f0;
+	--text-color: #ffffff;
 
 	--section-sep: 50px;
 	--side-margin: 64px;
@@ -44,7 +45,7 @@ body{
     color: #00f0ff;            /* Cyan text color */
     background: rgba(0, 240, 255, 0.05); /* Subtle glowing background */
 
-	font-size: 10px;
+	font-size: 12px;
 	font-style: normal;
 	font-weight: 400;
 	line-height: normal;

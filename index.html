@@ -68,6 +68,7 @@
 				flex: 0 0 58%;
 				align-items: flex-start;
 				text-align: left;
+				gap: 16px;
 				">
 				<div class="eyebrow">
 					<div class="dot"></div>
@@ -80,11 +81,22 @@
 					I bridge the gap between hardware architecture and low-level software. From schematic layout and PCB prototyping to bare-metal firmware and validation testbenches, I turn technical concepts into functional, real-world electronics.
 				</div>
 
-				<div style="margin-top: auto;">
-				<button class="pcb-button">
-					<span class="btn-text">Contact Me</span>
-					<span class="trace-border"></span>
-				</button>
+				<div style="
+					display: flex;
+					flex-direction: row;
+					justify-content: flex-start;
+					align-items: center;
+					gap: 8px;
+					flex-grow: 1;
+					">
+					<button class="pcb-button">
+						<span class="btn-text">View Projects</span>
+						<span class="trace-border"></span>
+					</button>
+					<button class="pcb-button">
+						<span class="btn-text">Get in Touch</span>
+						<span class="trace-border"></span>
+					</button>
 				</div>
 
 				<div class="stat-section">
@@ -105,145 +117,156 @@
 				</div>
 			</div>
 
+			<!----------------------------->
 
 			<div style="
-				display: grid;
-				grid-template-columns: repeat(2, 1fr);
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-start;
+				flex: 0 0 42%;
+				align-items: flex-start;
+				text-align: left;
 				gap: 16px;
 				padding: 16px;
 				border-radius: 24px;
 				border: 1px solid #18e147;
 				">
-
-				<div class="hero-card">
-					<div style="
-						display: flex;
-						flex-direction: row;
-						justify-content: flex-start;
-						align-items: center;
-						gap: 8px;
-						">
-						<img
-							src="assets/images/icons/iot.svg"
-							width="24"
-							height="24"
-						/>
-						<div class="hero-card-title">Sensors & IoT</div>
-					</div>
-
-					<div class="hero-card-description">
-						Wireless monitoring, data collection, and real-time feedback with displays, alerts, and connected dashboards.
-					</div>
+				<div class="eyebrow">
+					<div class="dot"></div>
+					Workbench Snapshot
 				</div>
+				<div style="
+					display: grid;
+					grid-template-columns: repeat(2, 1fr);
+					gap: 16px;
 
-				<div class="hero-card">
-					<div style="
-						display: flex;
-						flex-direction: row;
-						justify-content: flex-start;
-						align-items: center;
-						gap: 8px;
-						">
-						<img
-							src="assets/images/icons/chip.svg"
-							width="24"
-							height="24"
-						/>
-						<div class="hero-card-title">Embedded</div>
+					">
+
+					<div class="hero-card">
+						<div style="
+							display: flex;
+							flex-direction: row;
+							justify-content: flex-start;
+							align-items: center;
+							gap: 8px;
+							">
+							<img
+								src="assets/images/icons/iot.svg"
+								width="24"
+								height="24"
+							/>
+							<div class="hero-card-title">Sensors & IoT</div>
+						</div>
+
+						<div class="hero-card-description">
+							Wireless monitoring, data collection, and real-time feedback with displays, alerts, and connected dashboards.
+						</div>
 					</div>
 
-					<div class="hero-card-description">
-						Firmware for STM32, ESP32, and MCU-based systems with sensor input, control logic, and communication interfaces.
-					</div>
-				</div>
+					<div class="hero-card">
+						<div style="
+							display: flex;
+							flex-direction: row;
+							justify-content: flex-start;
+							align-items: center;
+							gap: 8px;
+							">
+							<img
+								src="assets/images/icons/chip.svg"
+								width="24"
+								height="24"
+							/>
+							<div class="hero-card-title">Embedded</div>
+						</div>
 
-				<div class="hero-card">
-					<div style="
-						display: flex;
-						flex-direction: row;
-						justify-content: flex-start;
-						align-items: center;
-						gap: 8px;
-						">
-						<img
-							src="assets/images/icons/pcb.svg"
-							width="24" height="24"
-						/>
-						<div class="hero-card-title">PCB</div>
-					</div>
-					<div class="hero-card-description">
-						Design and build circuit boards, prototypes, and microcontroller-based devices.
-					</div>
-				</div>
-
-				<div class="hero-card">
-					<div style="
-						display: flex;
-						flex-direction: row;
-						justify-content: flex-start;
-						align-items: center;
-						gap: 8px;
-						">
-						<img
-							src="assets/images/icons/robot.svg"
-							width="24"
-							height="24"
-						/>
-						<div class="hero-card-title">Power Systems</div>
+						<div class="hero-card-description">
+							Firmware for STM32, ESP32, and MCU-based systems with sensor input, control logic, and communication interfaces.
+						</div>
 					</div>
 
-					<div class="hero-card-description">
-						DC-DC converters, SMPS, BMS, and power distribution engineered for efficiency and stability.
-					</div>
-				</div>
-
-				<div class="hero-card">
-					<div style="
-						display: flex;
-						flex-direction: row;
-						justify-content: flex-start;
-						align-items: center;
-						gap: 8px;
-						">
-						<img
-							src="assets/images/icons/robot.svg"
-							width="24"
-							height="24"
-						/>
-						<div class="hero-card-title">Control</div>
+					<div class="hero-card">
+						<div style="
+							display: flex;
+							flex-direction: row;
+							justify-content: flex-start;
+							align-items: center;
+							gap: 8px;
+							">
+							<img
+								src="assets/images/icons/pcb.svg"
+								width="24" height="24"
+							/>
+							<div class="hero-card-title">PCB</div>
+						</div>
+						<div class="hero-card-description">
+							Design and build circuit boards, prototypes, and microcontroller-based devices.
+						</div>
 					</div>
 
-					<div class="hero-card-description">
-						Closed-loop feedback loops, PID algorithms, sensor fusion, and precision motor drivers for accurate real-time system response.
-					</div>
-				</div>
+					<div class="hero-card">
+						<div style="
+							display: flex;
+							flex-direction: row;
+							justify-content: flex-start;
+							align-items: center;
+							gap: 8px;
+							">
+							<img
+								src="assets/images/icons/power.svg"
+								width="24"
+								height="24"
+							/>
+							<div class="hero-card-title">Power Systems</div>
+						</div>
 
-				<div class="hero-card">
-					<div style="
-						display: flex;
-						flex-direction: row;
-						justify-content: flex-start;
-						align-items: center;
-						gap: 8px;
-						">
-						<img
-							src="assets/images/icons/robot.svg"
-							width="24"
-							height="24"
-						/>
-						<div class="hero-card-title">Automation</div>
+						<div class="hero-card-description">
+							DC-DC converters, SMPS, BMS, and power distribution engineered for efficiency and stability.
+						</div>
 					</div>
 
-					<div class="hero-card-description">
-						Hardware-in-the-loop (HIL) testing, automated validation testbenches, and custom measurement rigs using Python and SCPI control.
+					<div class="hero-card">
+						<div style="
+							display: flex;
+							flex-direction: row;
+							justify-content: flex-start;
+							align-items: center;
+							gap: 8px;
+							">
+							<img
+								src="assets/images/icons/robot.svg"
+								width="24"
+								height="24"
+							/>
+							<div class="hero-card-title">Control</div>
+						</div>
+
+						<div class="hero-card-description">
+							Closed-loop feedback loops, PID algorithms, sensor fusion, and precision motor drivers for accurate real-time system response.
+						</div>
+					</div>
+
+					<div class="hero-card">
+						<div style="
+							display: flex;
+							flex-direction: row;
+							justify-content: flex-start;
+							align-items: center;
+							gap: 8px;
+							">
+							<img
+								src="assets/images/icons/automation.svg"
+								width="24"
+								height="24"
+							/>
+							<div class="hero-card-title">Automation</div>
+						</div>
+
+						<div class="hero-card-description">
+							Hardware-in-the-loop (HIL) testing, automated validation testbenches, and custom measurement rigs using Python and SCPI control.
+						</div>
 					</div>
 				</div>
 			</div>
-
-
-
-
-
 		</div>
 
 		<!----------------------------->
@@ -279,7 +302,7 @@
 			</div>
 
 			<div class="projects">
-
+				<a href="crucero.html">
 				<div class="flip-card-wrapper">
 					<div class="project-card">
 						<div class="flip-card-back">
@@ -306,91 +329,7 @@
 						</div>
 					</div>
 				</div>
-
-				<div class="flip-card-wrapper">
-					<div class="project-card">
-						<div class="flip-card-back">
-							<!-- PLACE YOUR REAR CONTENT HERE -->
-							<h2>Rear Content</h2>
-						</div>
-						<div class="flip-card-front">
-							<img src="assets/images/Crucero/PCB_Top_View_Cut.png">
-							<div style="padding: 0 16px 16px">
-								<div class="project-card-tags">
-									<div>System Design</div>
-									<div>2024</div>
-								</div>
-								<div class="project-card-title">Crucero System</div>
-								<div class="project-card-description">
-									An advanced, high-performance hardware and software validation platform designed to streamline automotive electronics testing.
-								</div>
-								<div class="chip-group">
-									<div class="chip">Python</div>
-									<div class="chip">C/C++</div>
-									<div class="chip">CircuitMaker</div>
-									<div class="chip">FreeCAD</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="flip-card-wrapper">
-					<div class="project-card">
-						<div class="flip-card-back">
-							<!-- PLACE YOUR REAR CONTENT HERE -->
-							<h2>Rear Content</h2>
-						</div>
-						<div class="flip-card-front">
-							<img src="assets/images/Crucero/PCB_Top_View_Cut.png">
-							<div style="padding: 0 16px 16px">
-								<div class="project-card-tags">
-									<div>System Design</div>
-									<div>2024</div>
-								</div>
-								<div class="project-card-title">Crucero System</div>
-								<div class="project-card-description">
-									An advanced, high-performance hardware and software validation platform designed to streamline automotive electronics testing.
-								</div>
-								<div class="chip-group">
-									<div class="chip">Python</div>
-									<div class="chip">C/C++</div>
-									<div class="chip">CircuitMaker</div>
-									<div class="chip">FreeCAD</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="flip-card-wrapper">
-					<div class="project-card">
-						<div class="flip-card-back">
-							<!-- PLACE YOUR REAR CONTENT HERE -->
-							<h2>Rear Content</h2>
-						</div>
-						<div class="flip-card-front">
-							<img src="assets/images/Crucero/PCB_Top_View_Cut.png">
-							<div style="padding: 0 16px 16px">
-								<div class="project-card-tags">
-									<div>System Design</div>
-									<div>2024</div>
-								</div>
-								<div class="project-card-title">Crucero System</div>
-								<div class="project-card-description">
-									An advanced, high-performance hardware and software validation platform designed to streamline automotive electronics testing.
-								</div>
-								<div class="chip-group">
-									<div class="chip">Python</div>
-									<div class="chip">C/C++</div>
-									<div class="chip">CircuitMaker</div>
-									<div class="chip">FreeCAD</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
+				</a>
 
 
 			</div>
@@ -514,6 +453,12 @@
 				<a href="https://github.com/agustinrovero">
 				<div class="contact-button">
 					<img src="assets/images/icons/github.svg" height="24">
+					<img src="assets/images/icons/external-link.svg" height="24">
+				</div>
+				</a>
+				<a href="https://www.linkedin.com/in/agustinrovero/">
+				<div class="contact-button">
+					<img src="assets/images/icons/linkedin.png" height="24">
 					<img src="assets/images/icons/external-link.svg" height="24">
 				</div>
 				</a>

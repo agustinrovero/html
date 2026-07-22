@@ -148,3 +148,13 @@
   height: auto; /* Lets the image size naturally scale */
   object-fit: cover;
 }
+
+
+
+
+/**************************************************************/
+
+.itemize {
+	list-style-type: '- ';
+	padding-left: 30px;
+}
