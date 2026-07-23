@@ -5,7 +5,7 @@
 	--primaty-color: #17de46;
 
 	--color-1: #17DE45;
-	--color-2: #DE17B0;
+	--color-2: #de17b0;
 
 	--color-50: #E8FDED;
 	--color-100: #BEF8CC;
@@ -22,11 +22,13 @@
 
 
 
-	--background-color: var(--color-950);
-	--primary-color: #00f0ff;
+	--c-background: #0A130E;
+	--c-card-background: #121E17;
+	--c-primary: #00A859;
+	--c-secondary: #00D2D3;
+	--c-text: #F4F6F8;
 
 	--main-font: "Science Gothic", sans-serif;
-	--text-color: #ffffff;
 
 	--section-sep: 50px;
 	--side-margin: 64px;
@@ -45,9 +47,10 @@ html {
 }
 
 body{
-	background-color: var(--background-color);
+	background-color: var(--c-background);
 
 	font-family: var(--main-font);
+	color: var(--c-text);
 }
 
 .content {
@@ -55,7 +58,7 @@ body{
 }
 
 
-.eyebrow{
+.eyebrow {
 	/* align-self: center; */
 	display: flex;
 	flex-direction: row;
@@ -63,9 +66,9 @@ body{
 	align-items: center;
 	flex-grow: 0;
 
-	border: 1px solid #00f0ff; /* Electric cyan border */
-    color: #00f0ff;            /* Cyan text color */
-    background: rgba(0, 240, 255, 0.05); /* Subtle glowing background */
+	border: 1px solid var(--c-secondary);
+    color: var(--c-secondary);
+    background: var(--c-card-background);
 
 	font-size: 12px;
 	font-style: normal;
@@ -85,7 +88,7 @@ body{
 		border-radius: 50%;        /* Makes it a perfect circle */
 		display: inline-block;     /* Allows behavior like text */
 
-		background-color: #00f0ff;
-    	box-shadow: 0 0 8px #00f0ff; /* Subtle glow effect */
+		background-color: var(--c-secondary);
+    	box-shadow: 0 0 8px var(--c-secondary); /* Subtle glow effect */
 	}
 }

@@ -26,14 +26,14 @@
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
-	background-color: #3e3e3e;
-	color: #18e147;
-	border: 1px solid #18e147;
+	background-color: var--c-card-background;
+	border: 1px solid var(--c-primary);
 	border-radius: 24px;
 	padding: 16px;
 	font-size: 16px;
 
+	/* Pushes the last item to the far right */
 	& > *:last-child {
-		margin-left: auto; /* Pushes the last item to the far right */
+		margin-left: auto;
 	}
 }
