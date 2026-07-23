@@ -1,5 +1,28 @@
 :root {
-	--background-color: #252424;
+
+
+	--reference-color: hsl(134, 81%, 48%);
+	--primaty-color: #17de46;
+
+	--color-1: #17DE45;
+	--color-2: #DE17B0;
+
+	--color-50: #E8FDED;
+	--color-100: #BEF8CC;
+	--color-200: #95F4AB;
+	--color-300: #6BEF8A;
+	--color-400: #42EB69;
+	--color-500: #17DE46;
+	--color-600: #14BD3B;
+	--color-700: #10942E;
+	--color-800: #0B6A21;
+	--color-900: #074114;
+	--color-950: #021707;
+
+
+
+
+	--background-color: var(--color-950);
 	--primary-color: #00f0ff;
 
 	--main-font: "Science Gothic", sans-serif;
@@ -39,7 +62,6 @@ body{
 	justify-content: center;
 	align-items: center;
 	flex-grow: 0;
-	/* align-self: flex-start; */
 
 	border: 1px solid #00f0ff; /* Electric cyan border */
     color: #00f0ff;            /* Cyan text color */
