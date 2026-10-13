@@ -5,7 +5,7 @@
 	align-items: start;
 	padding: var(--section-sep) 0px 0px;
 	text-align: center;
-	gap: 8px;
+	gap: var(--section-vertical-gap);
 }
 
 .projects-section-title {
@@ -23,8 +23,6 @@
   grid-template-columns: repeat(3, 1fr); /* Creates exactly 3 columns of equal width */
   gap: 15px; /* Adds spacing between your columns and rows */
 }
-
-
 
 .project-card-tags {
 	display: flex;
@@ -70,8 +68,6 @@
 
 /**************************************************************/
 
-/**************************************************************/
-
 
 
 
@@ -92,69 +88,69 @@
 
 /* 2. The physical card container */
 .project-card {
-  position: relative;
-  width: 100%;
-  transform-style: preserve-3d;
-  transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
-  cursor: pointer;
+	position: relative;
+	width: 100%;
+	transform-style: preserve-3d;
+	transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+	cursor: pointer;
 }
 
 /* The Trigger */
 .flip-card-wrapper:hover .project-card {
-  transform: rotateY(180deg);
+	transform: rotateY(180deg);
 }
 
 /* 3. Front Face (The Content Anchor) */
 .flip-card-front {
-  position: relative; /* CHANGED: It now takes up physical space and dictates the height */
-  width: 100%;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
+	position: relative; /* CHANGED: It now takes up physical space and dictates the height */
+	width: 100%;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
 
-  display: flex;
-  flex-direction: column;
-  background-color: #111111;
-  border: 1px solid #ddd;
-  border-radius: 16px;
-  overflow: hidden;
-  gap: 4px;
+	display: flex;
+	flex-direction: column;
+	background-color: var(--c-card-background);
+	border: 1px solid var(--c-primary);
+	border-radius: 16px;
+	overflow: hidden;
+	gap: 4px;
 }
 
 /* 4. Rear Face (The Shadow Layer) */
 .flip-card-back {
-  position: absolute; /* Keeps this layer glued to the front's dimensions */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%; /* Stretches to exactly match the height of the front face */
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  z-index: 1;
-  transform: rotateY(180deg) ;
+	position: absolute; /* Keeps this layer glued to the front's dimensions */
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%; /* Stretches to exactly match the height of the front face */
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	z-index: 1;
+	transform: rotateY(180deg) ;
 
-  display: flex;
-  flex-direction: column;
-  background: #f43232;
-  color: #000000;
-  border: 1px solid #ddd;
-  border-radius: 16px;
-  overflow: hidden;
-  gap: 4px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	background-color: var(--c-card-background);
+	color: #000000;
+	border: 1px solid var(--c-primary);
+	border-radius: 16px;
+	overflow: hidden;
+	gap: 4px;
 }
 
 /* Image behavior adjustment */
 .flip-card-front img {
-  width: 100%;
-  height: auto; /* Lets the image size naturally scale */
-  object-fit: cover;
+	width: 100%;
+	height: auto; /* Lets the image size naturally scale */
+	object-fit: cover;
 }
-
-
-
 
 /**************************************************************/
 
 .itemize {
 	list-style-type: '- ';
-	padding-left: 30px;
+	/* padding-left: 30px; */
 }

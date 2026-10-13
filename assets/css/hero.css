@@ -6,7 +6,7 @@
 	margin: var(--section-sep) 0px 0px;
 	text-align: center;
 	flex-wrap: nowrap;
-	gap: 32px;
+	gap: var(section-horizontal-gap);
 }
 
 .hero-section-title {

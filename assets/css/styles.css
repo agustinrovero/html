@@ -32,12 +32,13 @@
 
 	--section-sep: 50px;
 	--side-margin: 64px;
+
+	--section-vertical-gap: 16px;
+	--section-horizontal-gap: 32px;
 }
 
 *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+
     font-family: var(--main-font);
 	color: var(--text-color);
 	text-decoration: none;
