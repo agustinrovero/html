@@ -19,9 +19,28 @@
 }
 
 .projects {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Creates exactly 3 columns of equal width */
-  gap: 15px; /* Adds spacing between your columns and rows */
+	display: flex;
+	flex-wrap: wrap;
+	gap: 15px;
+}
+
+.projects > a {
+	flex: 1 1 calc((100% - 30px) / 3);
+	max-width: calc((100% - 30px) / 3);
+}
+
+@media (max-width: 768px) {
+	.projects > a {
+		flex-basis: calc((100% - 15px) / 2);
+		max-width: calc((100% - 15px) / 2);
+	}
+}
+
+@media (max-width: 480px) {
+	.projects > a {
+		flex-basis: 100%;
+		max-width: 100%;
+	}
 }
 
 .project-card-tags {
