@@ -38,7 +38,6 @@
 }
 
 *{
-
     font-family: var(--main-font);
 	color: var(--text-color);
 	text-decoration: none;
@@ -56,9 +55,8 @@ body{
 }
 
 .content {
-	padding: 0 var(--side-margin);
+	margin: 0 var(--side-margin);
 }
-
 
 .eyebrow {
 	/* align-self: center; */
