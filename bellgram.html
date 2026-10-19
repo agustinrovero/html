@@ -62,68 +62,57 @@
 
 	<div class="content" style="margin-left: 200px; margin-right: 200px; text-align: justify">
 		<h2>Project Overview</h2>
-		<p>BellGram System was an advanced, high-performance hardware and software validation platform designed to streamline automotive electronics testing. Inspired by the architectural successes of the Mirgor Monitoring System (MMS) and traditional CANoa tools used within the QA department (that used the Vector VN1600 family), the "Crucero" (Cruiser) was engineered as a significantly beefed-up, multi-protocol powerhouse. Over a 1.5-year end-to-end development cycle, I served as the sole engineer responsible for the full-stack creation of this system—encompassing advanced multi-layer PCB design, low-level embedded firmware, a reactive Python/PySide6 desktop application, and custom mechanical housing.</p>
+		<p>
+			BellGram is a compact, ultra-flexible IoT notification bridge designed to connect physical input events directly to Telegram instant messaging. Built over an intensive 2-week rapid development cycle, the system leverages an ESP32 microcontroller to immediately alert users via a custom Telegram Bot whenever an event—such as a household doorbell press—is triggered. Designed for maximum usability and zero-friction deployment, BellGram features an onboard web server for easy, app-free provisioning and non-volatile storage, making it an adaptable hardware building block for a wide range of residential, commercial, or industrial alert applications.
+		</p>
 
 		<h2>The Challenge</h2>
 		<p>
-		Modern automotive Quality Assurance demanded flexible test equipment capable of interacting with multiple communication protocols (CAN, LIN), simulating variable battery conditions, and analyzing multi-channel audio simultaneously. Existing commercial tools were often siloed, expensive, or lacked the modularity required for rapid test configuration. The goal was to build a consolidated, robust instrumentation platform that could serve as a "Swiss Army knife" for complex automotive validation.
+			Standard smart doorbells and industrial event loggers often rely on proprietary cloud platforms, heavy mobile applications, or hardcoded Wi-Fi credentials requiring complex reflashing to update. Furthermore, interfacing raw microcontroller inputs directly with real-world triggers like household doorbells carries high risk due to signal mismatch and high AC/DC voltage spikes. The objective was to engineer an ultra-compact (32x32 mm), reliable, and universally accessible notification node that safely adapts high-voltage external triggers while keeping setup completely standalone and intuitive.
 		</p>
 
-		</h2>My Impact & Key Contributions</h2>
-		<h3>1. Advanced Hardware Engineering & Instrumentation</h3>
-		I designed the entire system architecture from the ground up, utilizing CircuitMaker for ECAD and PCBWay for manufacturing.
+		<h2>My Impact & Key Contributions</h2>
+		<h3>1. App-Free Onboarding & Native Provisioning</h3>
+		To eliminate hardcoded credentials and third-party smartphone app dependencies, I implemented a native HTTP web server operating directly on the ESP32.
 
 		<ul class="itemize">
 			<li>
-				Core Compute: Integrated the cutting-edge ESP32-C6 microcontroller to handle high-speed processing and modern connectivity.
+				Captive Portal / Access Point: If no known network is detected on boot, the board automatically spawns its own Wi-Fi Access Point (AP).
 			</li>
 			<li>
-    			Modular Communication Nodes: Designed and implemented two interchangeable custom CAN modules supporting both low-speed and high-speed CAN protocols, alongside an onboard LIN transceiver for complete automotive network coverage.
+    			Dynamic Parameter Configuration: Users connect via any smartphone or PC browser to set Wi-Fi SSIDs, Passwords, Telegram Bot Tokens, Chat IDs, and custom event messages.
 			</li>
 			<li>
-				Analog Signal Simulation & SWC Emulation: Engineered 4 Digital-to-Analog Converters (digital potentiometers paired with analog buffers) tied directly to the battery reference voltage to simulate analog Steering Wheel Controls (SWC) and other resistive peripheral networks required for active validation cycles.
-			</li>
-			<li>
-    			High-Fidelity Telemetry: Built a comprehensive monitoring array including local battery voltage/current sensing, remote kelvin-sensing battery measurement (VCC and GND terminals), and an 8-channel audio ADC configured as 4 differential inputs for advanced audio analysis.
-			</li>
-			<li>
-    			Isolated Power Architecture: Structured the board with dual USB-C interfaces (one for normal operation, one for debugging/power) ensuring the main high-current banana inputs were exclusively dedicated to powering the Device Under Test (DUT) through isolated measuring ICs.
-			</li>
-			<li>
-				Expanded I/O & UI: Integrated an I/O expander driving 8 general IOs, a buzzer, and 5 user-addressable LEDs for real-time status indication and 2 PWM pins.
+				Multi-Device Support: Custom alert text per unit allows multiple BellGram nodes to coexist on the same network while dispatching distinct context messages (e.g., "Front Door", "Back Gate", or "Machine Fault"). Re-configuration can be triggered at any time via a dedicated physical button.
 			</li>
 		</ul>
 
-		<h3>2. Embedded Operating System & Firmware Architecture</h3>
-		I developed the foundational firmware, transforming the ESP32-C6 into a reactive, message-driven embedded operating system.
+		<h3>2. Robust Non-Volatile Storage (NVS) Architecture</h3>
+		Designed for zero-maintenance operation in volatile power environments.
 		<ul class="itemize">
 			<li>
-				Robust Packet Encoding: Implemented Consistent Overhead Byte Stuffing (COBS) to guarantee reliable packet framing over UART.
+				Persistent Configuration: All user parameters (Wi-Fi, tokens, chat IDs, message strings) are committed directly to the ESP32's internal Non-Volatile Storage (NVS) partition.
 			</li>
 			<li>
-    			High-Efficiency Serialization: Developed a command processor that deserialized incoming user commands utilizing the MessagePack format, minimizing data overhead and execution latency.
+    			Power-Loss Resiliency: The device configuration persists indefinitely across power outages and hard resets without degradation or the need for re-pairing.
 			</li>
 		</ul>
 
-		<h3>3. Dynamic Host Software & Driver Architecture (Python / PySide6)</h3>
-		To control the platform, I architected a flexible, data-driven desktop ecosystem.
+		<h3>3. Ultra-Compact Hardware & Isolated Input Stage</h3>
+		Engineered an extremely small, low-profile printed circuit board measuring just 32x32 mm (excluding the PCB antenna extension) tailored for seamless integration into tight electrical enclosures or junction boxes.
 
-		<UL class="itemize">
-			<li>
-    			Self-Describing Hardware: Engineered a Python driver that automatically queried the PCB upon connection, allowing the hardware to dynamically inform the software of its implemented functions and capabilities.
-			</li>
-			<li>
-    			Meta-Driven Command Parser: Wrote a custom command parser (similar to argparse) that dynamically loaded its configuration structure from a JSON file. This decoupling allowed engineers to modify the command syntax or structure entirely within JSON, leaving the core Python code completely untouched.
-			</li>
-			<li>
-    			User Interface: Developed a clean, responsive graphical user interface using PySide6 to give QA operators real-time control and telemetry visualization.
-			</li>
-		</ul>
-
-		<h3>4. Mechanical Design</h3>
 		<ul class="itemize">
 			<li>
-				Designed a custom, rugged enclosure tailored for laboratory environment demands, which was successfully prototyped and deployed via 3D printing.
+    			Core Compute: Integrated the ESP32-C3-MINI-1-N4X system-in-package (SiP) for low-power processing, internal flash memory, and built-in Wi-Fi connectivity.
+			</li>
+			<li>
+    			Optocoupler Signal Conditioning: Designed 4 optically isolated input channels with associated screw terminal blocks to safely step down and isolate high-voltage signals (commonly present in standard household doorbells or industrial relays) down to 3.3V logic levels.
+			</li>
+			<li>
+    			Visual Telemetry & Debugging: Incorporated an addressable RGB LED for intuitive visual status diagnostics (e.g., provisioning mode, Wi-Fi connection, message dispatching).
+			</li>
+			<li>
+				Interface & Breakout: Added a micro-USB connector for power, onboard flashing, and real-time logging, alongside straight pin headers giving direct breakout access to all remaining MCU signals.
 			</li>
 		</ul>
 
@@ -132,19 +121,16 @@
 		<h2>Technical Stack</h2>
 		<ul class="itemize">
 			<li>
-				Hardware Engineering: Multilayer PCB Design (CircuitMaker), Component Selection, Power Isolation, Modular Daughterboard Design, PCBWay Prototyping.
+				Hardware Engineering: Compact Multilayer PCB Design, Component Selection (ESP32-C3-MINI-1-N4X, Optocouplers, Terminal Blocks, RGB LED), Signal Isolation & Conditioning.
 			</li>
 			<li>
-				Embedded Firmware: ESP32-C6 (C/C++, RTOS), Custom Command OS, COBS Encoding, MessagePack Serialization, ADC/DAC Interfacing.
+				Embedded Firmware: ESP32 (C/C++), Native Web Server, SoftAP Provisioning Engine, NVS Partition Management, GPIO Interrupt Handling, Telegram Bot API Interfacing.
 			</li>
 			<li>
-				Software Engineering: Python, PySide6 (Qt), Metaprogramming (JSON-driven parsers), Serialization Protocols, Cross-Platform Desktop App Development.
+				Protocols & I/O: Wi-Fi (802.11 b/g/n), HTTP/HTTPS, RESTful API (Telegram API), Optical Isolation, Addressable RGB Control (WS2812/NeoPixel), Micro-USB Logging.
 			</li>
 			<li>
-				Protocols & I/O: High/Low-Speed CAN Bus, LIN Bus, I2C/I2S/SPI, UART, PWM, Differential Audio Sampling.
-			</li>
-			<li>
-				Mechanical: 3D Polymeric Enclosure Design.
+				Form Factor: 32x32 mm Ultra-Compact Footprint.
 			</li>
 		</ul>
 	</div>
