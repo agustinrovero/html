@@ -92,3 +92,16 @@ body{
     	box-shadow: 0 0 8px var(--c-secondary); /* Subtle glow effect */
 	}
 }
+
+
+
+
+
+
+.imagen-superior-derecha {
+    float: right;
+    width: 400px; /* Ajustá el ancho según lo que necesites */
+    height: auto; /* Mantiene la proporción de la imagen */
+    margin-left: 50px; /* Separa el texto para que no quede pegado a la izquierda de la imagen */
+    margin-bottom: 50px; /* Separa el texto que quede abajo */
+}
