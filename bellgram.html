@@ -60,7 +60,25 @@
 
 	<!------------------------------------------------------------->
 
+	<div class="content" style="margin-left: 200px; margin-right: 200px; padding: 40px 20px; text-align: center;">
+		<!-- Contenedor intermedio que se ajusta al tamaño de su contenido -->
+		<div style="display: inline-block; text-align: center;">
+			<!-- Título principal -->
+			<h1 style="font-size: 3.5rem; font-weight: 800; background: white; -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: -1px; margin-bottom: 15px; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+				BellGram
+			</h1>
+			<!-- Divisor Horizontal (ahora ocupa el 100% del ancho del título) -->
+			<hr style="width: 100%; border: 0; height: 4px; background: #00ffcc; border-radius: 2px; margin: 0;">
+		</div>
+	</div>
+
 	<div class="content" style="margin-left: 200px; margin-right: 200px; text-align: justify">
+		<img	src="assets/images/BellGram/BellGram.jpg" 
+				alt="Descripción de la imagen" 
+				class="imagen-superior-derecha"
+				style="width: 700px; height: auto;"
+		>
+
 		<h2>Project Overview</h2>
 		<p>
 			BellGram is a compact, ultra-flexible IoT notification bridge designed to connect physical input events directly to Telegram instant messaging. Built over an intensive 2-week rapid development cycle, the system leverages an ESP32 microcontroller to immediately alert users via a custom Telegram Bot whenever an event—such as a household doorbell press—is triggered. Designed for maximum usability and zero-friction deployment, BellGram features an onboard web server for easy, app-free provisioning and non-volatile storage, making it an adaptable hardware building block for a wide range of residential, commercial, or industrial alert applications.
