@@ -60,131 +60,117 @@
 
 	<!------------------------------------------------------------->
 
+	<div class="content" style="margin-left: 200px; margin-right: 200px; padding: 40px 20px; text-align: center;">
+		<!-- Contenedor intermedio que se ajusta al tamaño de su contenido -->
+		<div style="display: inline-block; text-align: center;">
+			<!-- Título principal -->
+			<h1 style="font-size: 3.5rem; font-weight: 800; background: white; -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: -1px; margin-bottom: 15px; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+				Quick Pulse (SWGO)
+			</h1>
+			<!-- Divisor Horizontal (ahora ocupa el 100% del ancho del título) -->
+			<hr style="width: 100%; border: 0; height: 4px; background: #00ffcc; border-radius: 2px; margin: 0;">
+		</div>
+	</div>
+
 	<div class="content" style="margin-left: 200px; margin-right: 200px; text-align: justify">
 		<h2>Project Overview</h2>
 		<p>
-			The Mirgor Monitoring System was an advanced hardware and software ecosystem built to validate Volkswagen Amarok and Saveiro infotainment systems (DUTs) for official laboratory certification. Acting as the lead technical QA Engineer, I designed the custom PCB, engineered the foundational firmware, and co-developed the physical packaging. The system replaced manual processes with a rugged, multi-channel data acquisition rig capable of simulating vehicle environments and monitoring electrical and audio performance in real time.
+			High-Speed Pulse Generator for PMT Emulation
+
+			This project focused on the design, development, and implementation of QuickPulse, a dedicated high-speed electronic pulse generator designed to emulate Photomultiplier Tubes (PMTs). Developed within the framework of the Southern Wide-field Gamma-ray Observatory (SWGO) astrophysics research project, this device served as a crucial laboratory tool to test and calibrate data acquisition electronics without relying on unpredictable real-world particle detections.
 		</p>
 
-		<h2>The Challenge</h2>
-		<p>
-			Automotive electronics require rigorous, long-term stress testing under extreme environmental conditions (such as temperature chambers) before receiving certification. The laboratory needed a scalable, high-density testing rig capable of autonomously executing complex test profiles, monitoring signal integrity, and detecting faults simultaneously across multiple units to eliminate human error and speed up validation.
-		</p>
-
-		<h2>My Impact & Key Contributions</h2>
-		<h3>1. Hardware Design & Instrumentation (Custom PCB & Enclosure)</h3>
-		To capture high-fidelity telemetry in a laboratory environment, I designed a custom instrumentation PCB from the ground up and collaborated on its physical integration.
-
-		<ul class="itemize">
+		<h2>Project Context & Rationale</h2>
+		<ul>
 			<li>
-				ECAD Design: Developed the schematic and multi-layer PCB layout using CircuitMaker, leveraging the ESP32 microcontroller as the core compute engine.
+				Astrophysical Framework: The system supported research on ultra-high-energy cosmic gamma rays, which provide direct tracking to extreme celestial sources because they are not deflected by cosmic magnetic fields.
 			</li>
 			<li>
-    			Multi-Variable Telemetry: Engineered specialized circuitry on the board to measure critical real-time data, including battery voltage, current consumption, audio levels, and Total Harmonic Distortion (THD).
+				The Detection Challenge: Ground-based observatories capture these gamma rays through high-altitude Water Cherenkov Detectors (WCDs). When cosmic particles strike the water tanks, they produce brief flashes of Cherenkov light.
 			</li>
 			<li>
-				Automated Device Control: Integrated a CAN Bus transceiver on the board to allow direct command injection and state monitoring of the automotive units.
-			</li>
-			<li>
-    			Rugged Mechanical Integration: Co-designed a dedicated housing featuring a heavy-duty CPC37 connector for the main vehicle harness, high-current connectors for the DUT battery power distribution, and a dedicated barrel jack to isolate power to the monitoring PCB.
+				The Role of PMTs: Photomultiplier Tubes sitting at the bottom of these tanks register the light and convert it into ultra-fast electrical pulses lasting only a few nanoseconds.
 			</li>
 		</ul>
 
-		<h3>2. Low-Level Embedded Software (First-Layer Firmware)</h3>
-		I developed the foundational firmware layer for the ESP32 node to bridge the gap between physical sensors, automotive networks, and higher-level automation software.
+		<h2>Technical Challenges & Lessons Learned</h2>
+		<h3>1. High-Speed Pulse Shaping & Time Resolution</h3>
 		<ul class="itemize">
 			<li>
-				Developed low-latency data acquisition routines to accurately process and filter electrical and audio signals.
+				The Challenge: Generating clean, predictable electrical pulses down to 5 nanoseconds required an operating bandwidth far beyond conventional digital electronics.
 			</li>
 			<li>
-    			Implemented the CAN Bus communication stack to handle real-time vehicle simulation commands and state changes.
-			</li>
-			<li>
-    			Created a lightweight data-streaming protocol to feed all telemetry up to a centralized Raspberry Pi hub via a multi-device architecture (supporting up to 6 nodes simultaneously).
+				The Lesson: Implementing a dedicated programmable delay line (DS1023) combined with a high-speed comparator array (LT1721) proved highly effective. Relying on discrete logic gates or standard analog RC circuits was ruled out early due to poor digital control and extreme layout complexity.
 			</li>
 		</ul>
 
-		<h3>3. Closed-Loop Automation & Fault Detection</h3>
-		The hardware infrastructure seamlessly integrated into a Python-driven master system. Because my firmware accurately captured device states and environmental factors (specifically temperature), the system operated on a smart, closed-loop feedback design. It instantly flagged device errors, allowing laboratory operators to pinpoint failures immediately and take swift corrective action during long-endurance certification cycles.
-
+		<h3>2. Analog Amplitude Control & Unwanted Offsets</h3>
 		<ul class="itemize">
 			<li>
-    			Self-Describing Hardware: Engineered a Python driver that automatically queried the PCB upon connection, allowing the hardware to dynamically inform the software of its implemented functions and capabilities.
+				The Challenge: While the temporal control of the pulse was highly accurate, managing the amplitude and offset balance presented significant signal degradation. Offsets accumulated across the analog multiplier stage (ADL5391) and the final differential-to-single-ended amplifier (THS3491) shifted the expected output levels.
 			</li>
 			<li>
-    			Meta-Driven Command Parser: Wrote a custom command parser (similar to argparse) that dynamically loaded its configuration structure from a JSON file. This decoupling allowed engineers to modify the command syntax or structure entirely within JSON, leaving the core Python code completely untouched.
+				The Lesson: In high-speed paths, DC offsets cannot be treated as negligible systemic noise. Future iterations will incorporate active high-pass filtering right before the final amplification stage to maximize dynamic range, or utilize the DAC to perform software-based auto-calibration routines.
+			</li>
+		</ul>
+
+		<h3>3. Electromagnetic Interference & Power Supply Coupling</h3>
+		<ul class="itemize">
+			<li>
+				The Challenge: Initial testing revealed an unwanted 100 kHz, 100 mV AC ripple riding on top of a heavy DC component at the output when no pulses were being generated.
 			</li>
 			<li>
-    			User Interface: Developed a clean, responsive graphical user interface using PySide6 to give QA operators real-time control and telemetry visualization.
+				The Lesson: This interference tracked back directly to the switching frequency of the \(\pm15\text{ V}\) AC-DC power supply, which ran parallel to the high-speed output traces on the 2-layer PCB (p. 22). Relocating the power stage to a physically isolated compartment and upgrading to a multi-layer board with dedicated ground planes and via stitching are critical steps for the next revision.
+			</li>
+		</ul>
+
+		<h3>4. Component Sensitivity & Layout Ruggedness</h3>
+		<ul class="itemize">
+			<li>
+				The Challenge: During the prototyping phase, the high-speed current-feedback operational amplifier (THS3491) suffered repeated catastrophic failures during power-up sequences.
+			</li>
+			\<li>
+				The Lesson: High-speed, high-performance ICs are exceptionally vulnerable to power supply transients and pin-specific layout constraints that may not be fully documented in standard datasheets. Troubleshooting this issue highlighted the value of technical community forums and rigorous power sequencing protection.
+			</li>
+		</ul>
+
+		<h2>Conclusion & Future Outlook</h2>
+		<ul>
+			<li>
+				Successful Emulation: The project successfully delivered a functional laboratory instrument capable of synthesizing fast, nanosecond-scale electrical pulses, fulfilling its primary objective of emulating PMT detector signals.
+			</li>
+			<li>
+				Hardware Validation: Developing this system provided a safe, repeatable, and highly controllable testing environment, drastically accelerating the debugging of data acquisition boards without needing complex, real-world astrophysical setups.
+			</li>
+			<li>
+				Engineering Foundation: The technical challenges encountered—specifically regarding high-speed board layout, switching power supply noise, and analog offset management—provided invaluable insights and a solid engineering foundation for future hardware revisions.
+			</li>
+			<li>
+				Scalable Architecture: The integration of programmable logic and high-speed analog stages proved that scalable, cost-effective emulation tools can effectively match the strict timing requirements of modern physics research facilities.
 			</li>
 		</ul>
 
 		<h2>Technical Stack</h2>
 		<ul class="itemize">
 			<li>
-				Hardware Engineering: Custom PCB Design (CircuitMaker), Circuit Instrumentation, Power Distribution, Industrial Connectors (CPC37).
+				Hardware Engineering: Multilayer PCB Design (CircuitMaker), Component Selection, Power Isolation, Modular Daughterboard Design, PCBWay Prototyping.
 			</li>
 			<li>
-				Embedded Firmware: ESP32 (C/C++), RTOS, Sensor Interfacing (ADC, I2C, I2S, SPI), Device Drivers.
+				Embedded Firmware: ESP32-C6 (C/C++, RTOS), Custom Command OS, COBS Encoding, MessagePack Serialization, ADC/DAC Interfacing.
 			</li>
 			<li>
-				Protocols & Architecture: CAN Bus (Controller Area Network), Automated Testing Infrastructure, Edge-to-Hub Telemetry.
+				Software Engineering: Python, PySide6 (Qt), Metaprogramming (JSON-driven parsers), Serialization Protocols, Cross-Platform Desktop App Development.
+			</li>
+			<li>
+				Protocols & I/O: High/Low-Speed CAN Bus, LIN Bus, I2C/I2S/SPI, UART, PWM, Differential Audio Sampling.
+			</li>
+			<li>
+				Mechanical: 3D Polymeric Enclosure Design.
 			</li>
 		</ul>
 	</div>
 
-
-
-
-
-
-
-
-
 	<!------------------------------------------------------------->
 
-
-	<div class="slideshow-container">
-
-	<div class="mySlides fade">
-		<div class="numbertext">1 / 3</div>
-		<img src="assets/images/Crucero/PCB_Top_View.PNG">
-		<div class="text">Caption Text</div>
-	</div>
-
-	<div class="mySlides fade">
-		<div class="numbertext">2 / 3</div>
-		<img src="https://picsum.photos/id/10/300/200">
-		<div class="text">Caption Two</div>
-	</div>
-
-	<div class="mySlides fade">
-		<div class="numbertext">3 / 3</div>
-		<img src="https://picsum.photos/id/10/300/200">
-		<div class="text">Caption Three</div>
-	</div>
-
-	<!-- Next and previous buttons -->
-	<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-	<a class="next" onclick="plusSlides(1)">&#10095;</a>
-	</div>
-
-	<br>
-
-	<!-- The dots/circles -->
-	<div style="text-align:center">
-		<span class="dot" onclick="currentSlide(1)"></span>
-		<span class="dot" onclick="currentSlide(2)"></span>
-		<span class="dot" onclick="currentSlide(3)"></span>
-	</div>
-
-
-
-
-
-
-
-
-	<script src="assets/js/slideshow.js"></script>
 	</body>
 </html>

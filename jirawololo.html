@@ -60,91 +60,87 @@
 
 	<!------------------------------------------------------------->
 
+	<div class="content" style="margin-left: 200px; margin-right: 200px; padding: 40px 20px; text-align: center;">
+		<!-- Contenedor intermedio que se ajusta al tamaño de su contenido -->
+		<div style="display: inline-block; text-align: center;">
+			<!-- Título principal -->
+			<h1 style="font-size: 3.5rem; font-weight: 800; background: white; -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: -1px; margin-bottom: 15px; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+				Jira Work Log Logger
+			</h1>
+			<!-- Divisor Horizontal (ahora ocupa el 100% del ancho del título) -->
+			<hr style="width: 100%; border: 0; height: 4px; background: #00ffcc; border-radius: 2px; margin: 0;">
+		</div>
+	</div>
+
 	<div class="content" style="margin-left: 200px; margin-right: 200px; text-align: justify">
 		<h2>Project Overview</h2>
-		<p>Crucero System was an advanced, high-performance hardware and software validation platform designed to streamline automotive electronics testing. Inspired by the architectural successes of the Mirgor Monitoring System (MiMo Sysgtem), CANoe (Vector) and CANoa (Mirgor) tools used within the QA department (that used the Vector VN1600 family), the "Crucero" (Cruiser) was engineered as a significantly beefed-up, multi-protocol powerhouse. Over a 1.5-year end-to-end development cycle, I served as the sole engineer responsible for the full-stack creation of this system—encompassing advanced multi-layer PCB design, low-level embedded firmware, a reactive Python/PySide6 desktop application, and custom mechanical housing.</p>
+		<p>
+			The Jira Work Log Logger (colloquially known as Jira Wololo) was a powerful productivity application implemented using Flet that let users massively upload work logs into the Jira platform. The app was engineered to optimize everyday hour tracking tasks by automating the logging of repetitive entries such as daily meetings, standard vacations, or recurring leaves. To ensure absolute data integrity and prevent unintended disruptions to work tracking systems, the application integrated strict local constraints, operating under a safety architecture that restricted massive work log uploads exclusively to issues where user logs already existed.
+		</p>
 
 		<h2>The Challenge</h2>
 		<p>
-		Modern automotive Quality Assurance demanded flexible test equipment capable of interacting with multiple communication protocols (CAN, LIN), simulating variable battery conditions, and analyzing multi-channel audio simultaneously. Existing commercial tools were often siloed, expensive, or lacked the modularity required for rapid test configuration. The goal was to build a consolidated, robust instrumentation platform that could serve as a "Swiss Army knife" for complex automotive validation.
+			Standard time-tracking interfaces often required manual, repetitive entry patterns for everyday events, leading to significant cumulative time waste and human error across development teams. Building a standalone automation client required balancing frictionless data entry with rigorous security safeguards, as incorrect batch uploads could permanently corrupt historical enterprise work tracking. The system needed to safely interface with Atlassian's platform, handle dynamic environment configurations containing sensitive credentials, process highly flexible user-defined date syntax, and run reliably across varying python developer environments.
+
+			Ultimately, due to a lack of long-term maintenance, the software became non-functional after breaking changes were introduced in both the Atlassian Jira API endpoints and the underlying Flet framework.
 		</p>
 
 		<h2>My Impact & Key Contributions</h2>
-		<h3>1. Advanced Hardware Engineering & Instrumentation</h3>
-		I designed the entire system architecture from the ground up, utilizing CircuitMaker for ECAD and PCBWay for manufacturing.
+		<h3>1. Robust API Token Authentication & Secure State Management</h3>
+		To establish a secure bridge with the Atlassian cloud platform, I implemented a decentralized environment configuration system decoupled from the primary application code.
 
 		<ul class="itemize">
 			<li>
-				Core Compute: Integrated the cutting-edge ESP32-C6 microcontroller to handle high-speed processing and modern connectivity.
+				Isolated Sensitive Data: Designed the application to source variables from an external .env file containing local server paths, authenticated email handles, and encrypted Atlassian API tokens.
 			</li>
 			<li>
-    			Modular Communication Nodes: Designed and implemented two interchangeable custom CAN modules supporting both low-speed and high-speed CAN protocols, alongside an onboard LIN transceiver for complete automotive network coverage.
-			</li>
-			<li>
-				Analog Signal Simulation & SWC Emulation: Engineered 4 Digital-to-Analog Converters (digital potentiometers paired with analog buffers) tied directly to the battery reference voltage to simulate analog Steering Wheel Controls (SWC) and other resistive peripheral networks required for active validation cycles.
-			</li>
-			<li>
-    			High-Fidelity Telemetry: Built a comprehensive monitoring array including local battery voltage/current sensing, remote kelvin-sensing battery measurement (VCC and GND terminals), and an 8-channel audio ADC configured as 4 differential inputs for advanced audio analysis.
-			</li>
-			<li>
-    			Isolated Power Architecture: Structured the board with dual USB-C interfaces (one for normal operation, one for debugging/power) ensuring the main high-current banana inputs were exclusively dedicated to powering the Device Under Test (DUT) through isolated measuring ICs.
-			</li>
-			<li>
-				Expanded I/O & UI: Integrated an I/O expander driving 8 general IOs, a buzzer, and 5 user-addressable LEDs for real-time status indication and 2 PWM pins.
+				Graceful Error Handling: Engineered real-time terminal diagnostic exceptions to handle authentication anomalies, immediately reporting specific error boundaries such as Site temporarily unavailable for server-side mismatches and Client must be authenticated to access this resource for invalid user credentials.
 			</li>
 		</ul>
 
-		<h3>2. Embedded Operating System & Firmware Architecture</h3>
-		I developed the foundational firmware, transforming the ESP32-C6 into a reactive, message-driven embedded operating system.
-		<ul class="itemize">
-			<li>
-				Robust Packet Encoding: Implemented Consistent Overhead Byte Stuffing (COBS) to guarantee reliable packet framing over UART.
-			</li>
-			<li>
-    			High-Efficiency Serialization: Developed a command processor that deserialized incoming user commands utilizing the MessagePack format, minimizing data overhead and execution latency.
-			</li>
-		</ul>
-
-		<h3>3. Dynamic Host Software & Driver Architecture (Python / PySide6)</h3>
-		To control the platform, I architected a flexible, data-driven desktop ecosystem.
+		<h3>2. High-Fidelity Date Parsing Engine & Validation Controls</h3>
+		Developed a sophisticated date formatting processor capable of interpreting complex multi-flavor calendar syntax from a single unified text field.
 
 		<ul class="itemize">
 			<li>
-    			Self-Describing Hardware: Engineered a Python driver that automatically queried the PCB upon connection, allowing the hardware to dynamically inform the software of its implemented functions and capabilities.
+				• ISO 8601 Compliance: Supported explicit comma-separated parameters honoring standardized year/month/day notations (YYYY.MM.DD or YYYY/MM/DD).
 			</li>
 			<li>
-    			Meta-Driven Command Parser: Wrote a custom command parser (similar to argparse) that dynamically loaded its configuration structure from a JSON file. This decoupling allowed engineers to modify the command syntax or structure entirely within JSON, leaving the core Python code completely untouched.
+				Advanced Interval Logic & Exclusions: Programmed sequential range logic (start:end) and paired negative parameters (e.g., prefixing a hyphen -) to selectively erase specific individual days or entire holiday blocks from a targeted tracking period.
 			</li>
 			<li>
-    			User Interface: Developed a clean, responsive graphical user interface using PySide6 to give QA operators real-time control and telemetry visualization.
+				Automated Workweek Filtration: Integrated a contextual processing layer that automatically purged Saturdays and Sundays from the upload queue while standardizing all successfully generated log timestamps to 09:00 AM.
 			</li>
 		</ul>
 
-		<h3>4. Mechanical Design</h3>
+		<h3>3. Interactive UI Architecture & Local Preset Caching</h3>
+		Built a fluid user interface with dynamic control feedback loops to guarantee zero-fault submissions and facilitate rapid hour logging.
+
 		<ul class="itemize">
 			<li>
-				Designed a custom, rugged enclosure tailored for laboratory environment demands, which was successfully prototyped and deployed via 3D printing.
+    			State-Driven Input Validation: Programmed reactive form logic that completely disabled execution buttons until all data requirements (valid Jira issue selections, formatted time tokens, and correct date entries) were validated.
+			</li>
+			<li>
+    			Dynamic Chip Caching System: Created a persistent template macro system allowing users to save repetitive log configurations into visual, clickable interactive tags.
+			</li>
+			<li>
+    			JSON Configuration Bridge: Outlined an underlying saved.json storage block where custom colors (mapped via AARRGGBB hex formats) and structural issue constraints were cached locally to speed up subsequent user sessions.
 			</li>
 		</ul>
-
-
 
 		<h2>Technical Stack</h2>
 		<ul class="itemize">
 			<li>
-				Hardware Engineering: Multilayer PCB Design (CircuitMaker), Component Selection, Power Isolation, Modular Daughterboard Design, PCBWay Prototyping.
+				Software Engineering: Desktop Application Architecture, Contextual Form Validation, State-Driven Button Control, Error Boundary Mapping.
 			</li>
 			<li>
-				Embedded Firmware: ESP32-C6 (C/C++, RTOS), Custom Command OS, COBS Encoding, MessagePack Serialization, ADC/DAC Interfacing.
+				Application Framework & Core: Python, Flet UI Engine, Pip Package Management, Asynchronous Core Operations.
 			</li>
 			<li>
-				Software Engineering: Python, PySide6 (Qt), Metaprogramming (JSON-driven parsers), Serialization Protocols, Cross-Platform Desktop App Development.
+				Data Architecture & Security: Environment Variable Isolation (.env), Local JSON Caching (saved.json), AARRGGBB Hex Color Processing.
 			</li>
 			<li>
-				Protocols & I/O: High/Low-Speed CAN Bus, LIN Bus, I2C/I2S/SPI, UART, PWM, Differential Audio Sampling.
-			</li>
-			<li>
-				Mechanical: 3D Polymeric Enclosure Design.
+				Protocols & Integrations: Atlassian Cloud REST Interfacing, Jira Work Log API, ISO 8601 Date Parsing, Continuous Calendar Intervals.
 			</li>
 		</ul>
 	</div>
